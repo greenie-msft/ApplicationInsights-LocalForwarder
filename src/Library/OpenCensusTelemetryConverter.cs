@@ -224,6 +224,7 @@
                 }
             }
 
+            request.Context.Operation.Name = request.Name;
             request.Context.InstrumentationKey = ikey;
             telemetryClient.TrackRequest(request);
         }
@@ -318,6 +319,7 @@
                 }
             }
 
+            dependency.Context.Operation.Name = dependency.Name;
             dependency.Context.InstrumentationKey = ikey;
             telemetryClient.TrackDependency(dependency);
         }
