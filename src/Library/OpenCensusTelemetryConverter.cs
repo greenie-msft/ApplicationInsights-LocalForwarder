@@ -397,6 +397,7 @@
 
         private static void SetOperationContext(Span span, OperationTelemetry telemetry)
         {
+            telemetry.Context.Operation.Name = span.Name?.Value;
             string traceId = BytesStringToHexString(span.TraceId);
             telemetry.Context.Operation.Id = BytesStringToHexString(span.TraceId);
             if (span.ParentSpanId != null && !span.ParentSpanId.IsEmpty && span.ParentSpanId.Any(b => b != 0))
